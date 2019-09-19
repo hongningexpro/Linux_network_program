@@ -94,7 +94,10 @@ void handle_server(int sock){
                 ret = chdir(path);
                 if(ret != -1){
                     write(con_sock, "change dir successfully!\n", strlen("change dir successfully!\n"));
+                }else{
+                    write(con_sock, "change dir failed!\n", strlen("change dir failed!\n"));
                 }
+                continue;
             }
             system(buffer);
         }
